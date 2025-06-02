@@ -1,70 +1,65 @@
 <script lang="ts">
-	import { Button, Card } from '$lib';
+	import { Button, Card } from 'svelte-npm-boilerplate';
 
-	let count = $state(0);
+	let count = 0;
 
-	const increment = () => {
+	function handleIncrement() {
 		count++;
-	};
+	}
 
-	const decrement = () => {
+	function handleDecrement() {
 		count--;
-	};
+	}
 
-	const reset = () => {
+	function handleReset() {
 		count = 0;
-	};
+	}
 </script>
 
 <svelte:head>
-	<title>Svelte UI Component Demo</title>
-	<meta name="description" content="Demo page for Svelte 5 UI components" />
+	<title>Testing svelte-npm-boilerplate</title>
 </svelte:head>
 
 <main>
-	<h1>Svelte 5 UI Component Demo</h1>
+	<h1>Testing svelte-npm-boilerplate Package</h1>
+	<p>This page demonstrates the components from your npm package working in a separate project.</p>
 
-	<Card title="Button Component Examples" subtitle="Different button variants and sizes">
+	<section>
+		<h2>Button Component Tests</h2>
 		<div class="button-grid">
-			<div class="button-section">
-				<h4>Variants</h4>
-				<Button onclick={increment}>Primary Button</Button>
-				<Button variant="secondary" onclick={decrement}>Secondary Button</Button>
-				<Button variant="danger" onclick={reset}>Danger Button</Button>
-			</div>
-
-			<div class="button-section">
-				<h4>Sizes</h4>
-				<Button size="small" onclick={increment}>Small</Button>
-				<Button size="medium" onclick={increment}>Medium</Button>
-				<Button size="large" onclick={increment}>Large</Button>
-			</div>
-
-			<div class="button-section">
-				<h4>States</h4>
-				<Button onclick={increment}>Enabled</Button>
-				<Button disabled>Disabled</Button>
-			</div>
+			<Button variant="primary" size="small" onclick={handleIncrement}>
+				Increment (Small)
+			</Button>
+			<Button variant="secondary" size="medium" onclick={handleDecrement}>
+				Decrement (Medium)
+			</Button>
+			<Button variant="danger" size="large" onclick={handleReset}>
+				Reset (Large)
+			</Button>
 		</div>
-	</Card>
+		<p>Count: <strong>{count}</strong></p>
+	</section>
 
-	<Card title="Counter Example" subtitle="Current count: {count}">
-		<p>This counter demonstrates the button components in action.</p>
-		<div class="counter-controls">
-			<Button variant="secondary" onclick={decrement}>-</Button>
-			<span class="count">{count}</span>
-			<Button onclick={increment}>+</Button>
-			<Button variant="danger" onclick={reset}>Reset</Button>
+	<section>
+		<h2>Card Component Tests</h2>
+		<div class="card-grid">
+			<Card title="Basic Card" subtitle="Simple example">
+				<p>This is a basic card with title and subtitle.</p>
+			</Card>
+
+			<Card title="Interactive Card">
+				<p>Current count: {count}</p>
+				<Button variant="primary" onclick={handleIncrement}>
+					Click me!
+				</Button>
+			</Card>
+
+			<Card>
+				<h3>Card without props</h3>
+				<p>This card doesn't have title or subtitle props.</p>
+			</Card>
 		</div>
-	</Card>
-
-	<Card title="Nested Card Example">
-		<p>This demonstrates how cards can contain other content and components.</p>
-		<Card title="Nested Card" subtitle="A card within a card">
-			<p>This is content inside a nested card component.</p>
-			<Button>Nested Button</Button>
-		</Card>
-	</Card>
+	</section>
 </main>
 
 <style>
@@ -72,52 +67,44 @@
 		max-width: 800px;
 		margin: 0 auto;
 		padding: 2rem;
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		font-family: Arial, sans-serif;
 	}
 
 	h1 {
+		color: #333;
 		text-align: center;
-		color: #111827;
 		margin-bottom: 2rem;
+	}
+
+	h2 {
+		color: #555;
+		margin: 2rem 0 1rem 0;
+	}
+
+	section {
+		margin-bottom: 3rem;
 	}
 
 	.button-grid {
 		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
-
-	.button-section {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		align-items: center;
-	}
-
-	.button-section h4 {
-		margin: 0;
-		min-width: 100px;
-		color: #374151;
-		font-weight: 500;
-	}
-
-	.counter-controls {
-		display: flex;
-		align-items: center;
 		gap: 1rem;
-		margin-top: 1rem;
+		margin-bottom: 1rem;
+		flex-wrap: wrap;
 	}
 
-	.count {
-		font-size: 1.5rem;
-		font-weight: bold;
-		color: #3b82f6;
-		min-width: 2rem;
-		text-align: center;
+	.card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1rem;
 	}
 
-	:global(body) {
-		margin: 0;
-		background-color: #f9fafb;
+	p {
+		line-height: 1.6;
+		color: #666;
+	}
+
+	strong {
+		color: #333;
+		font-size: 1.2em;
 	}
 </style> 

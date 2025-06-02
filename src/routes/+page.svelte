@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { Button, Card } from 'svelte-npm-boilerplate';
+	import Button from '$lib/Button.svelte';
+	import Card from '$lib/Card.svelte';
 
 	let count = 0;
 
@@ -27,15 +28,11 @@
 	<section>
 		<h2>Button Component Tests</h2>
 		<div class="button-grid">
-			<Button variant="primary" size="small" onclick={handleIncrement}>
-				Increment (Small)
-			</Button>
+			<Button variant="primary" size="small" onclick={handleIncrement}>Increment (Small)</Button>
 			<Button variant="secondary" size="medium" onclick={handleDecrement}>
 				Decrement (Medium)
 			</Button>
-			<Button variant="danger" size="large" onclick={handleReset}>
-				Reset (Large)
-			</Button>
+			<Button variant="danger" size="large" onclick={handleReset}>Reset (Large)</Button>
 		</div>
 		<p>Count: <strong>{count}</strong></p>
 	</section>
@@ -49,9 +46,7 @@
 
 			<Card title="Interactive Card">
 				<p>Current count: {count}</p>
-				<Button variant="primary" onclick={handleIncrement}>
-					Click me!
-				</Button>
+				<Button variant="primary" onclick={handleIncrement}>Click me!</Button>
 			</Card>
 
 			<Card>
@@ -107,4 +102,4 @@
 		color: #333;
 		font-size: 1.2em;
 	}
-</style> 
+</style>

@@ -25,7 +25,7 @@
 <button
 	class="btn btn--{variant} btn--{size}"
 	{disabled}
-	on:click={handleClick}
+	onclick={handleClick}
 	type="button"
 >
 	{@render children()}

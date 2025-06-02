@@ -1,6 +1,20 @@
-# Svelte 5 UI Component Package
+# Svelte NPM Boilerplate
 
 A modern, reusable UI component library built with Svelte 5, featuring TypeScript support and modern development tooling.
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/svelte-npm-boilerplate.git
+cd svelte-npm-boilerplate
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
 
 ## Features
 
